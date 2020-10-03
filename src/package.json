@@ -1,0 +1,13 @@
+{
+  "name": "attendance",
+  "version": "1.0.0",
+  "description": "attendance app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "JD Rudie",
+  "license": "ISC",
+  "dependencies": {}
+}
