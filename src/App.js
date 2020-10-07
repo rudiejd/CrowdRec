@@ -2,34 +2,34 @@ import React, { Component } from 'react';
 import './App.css';
 import { Home } from './Home';
 import { About } from './About';
-import { Contact } from './Contact';
 import { NoMatch } from './Nomatch.js';
-import { Layout } from './components/Layout';
 import { Navigation } from './components/Navigation';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Class } from './Class';
-import { Student } from './Student';
+import { ModalFooter, Row } from 'react-bootstrap';
 
-
+// Main class just for rendering the components. Just a shell
 class App extends Component {
 	render() {
 		return (
                 <React.Fragment>
-                        <Router>
-                                <Navigation />
-                                <Layout>
-                                        
-                                        <Switch>
-                                                <Route exact path="/" component={Home} />
-                                                <Route exact path="/about" component={About} />
-                                                <Route exact path="/contact" component={Contact} />
-                                                <Route exact path="/class" component={Class} />
-                                                <Route exact path="/student" component={Student} />
-                                                <Route component={NoMatch} />
-                                        </Switch>
-                                </Layout>
-                        </Router>
+                        
+                                <Router>
+                                        <Navigation />
+                                        <main role="main">
+                                    
+                                                <Switch>
+                                                        <Route exact path="/" component={Home} />
+                                                        <Route exact path="/about" component={About} />
+                                                        <Route component={NoMatch} />
+                                                </Switch>
+                                                
+                                        </main>
+                                        <footer className="page-footer w-100 font-small pt-4 text-center navbar fixed-bottom">
+                                                Copyright 2020 JD Rudie
+                                        </footer>
+                                </Router>
                 </React.Fragment>
+                
         );
         }
 

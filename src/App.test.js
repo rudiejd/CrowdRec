@@ -2,8 +2,14 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+/**
+ * TODO: Write more comprehensive test cases
+ */
+
+
+test('makes sure any CrowdRec stuff is showing up', () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
+  const linkElement = getByText(/CrowdRec/i);
   expect(linkElement).toBeInTheDocument();
 });
+
