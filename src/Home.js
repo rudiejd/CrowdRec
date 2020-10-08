@@ -6,7 +6,7 @@ import SpotifyAuth from './components/SpotifyAuth';
 import { Col, Row, Jumbotron, Container } from 'react-bootstrap';   
 export const Home = () => {
         return <React.Fragment>
-                <Jumbotron className="text-justify">
+                <Jumbotron className="text-justify overflow-wrap">
                     <Container>
                         <h1 className="display-4">Crowd-sourced Spotify recommendations</h1>
                         <p>Unsatisfied with your spotify recommendations? I was too; that's why I made this website. This site delivers recommendations based on 

@@ -15,7 +15,7 @@ export const About = () => (
  
                 </Row>
                 <Row>
-                    <Col lg={12} className="text-justify">
+                    <Col lg={12} className="text-justify overflow-wrap">
                         <Image src="https://i.pinimg.com/originals/10/71/a6/1071a68d76b0673337b84c84d37c8100.gif" className="float-left">
                         </Image>
                         <p>I am a junior Mathematics and Computer Science student at Miami University in Oxford, Ohio. I intern at Wolfram Research in the Enterprise Data Analysis department.</p>
