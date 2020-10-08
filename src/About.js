@@ -27,14 +27,20 @@ export const About = () => (
                 <Row className="mt-lg-5">
 
                         <Col lg={4} align="center">
-                            <Image src="github.png"></Image>
+                            	<a href="https://github.com/rudiejd">
+					<Image src="github.png"></Image>
+				</a>
                         </Col>
                         <Col align="center">
-                        <Image src="spotify.svg" width="120" height="120"></Image>
-                        </Col>
+				<a href="https://open.spotify.org/user/rudebowski">
+                        		<Image src="spotify.svg" width="120" height="120"></Image>
+                        	</a>
+			</Col>
                         <Col align="center">
-                        <Image src="insta.svg" width="120" height="120"></Image>
-                        </Col>
+				<a href="https://instagram.com/jd_rude">
+                        		<Image src="insta.svg" width="120" height="120"></Image>
+                        	</a>
+			</Col>
                 </Row>
                 <Row Col md={2} className="offset-md-5 mt-5">
                     <PaypalDonate />
