@@ -16,7 +16,7 @@ export const Home = () => {
                         <SpotifyAuth></SpotifyAuth>
                     </Container>
                 </Jumbotron>
-            <Container fluid>
+            <Container>
                 
                 <Row>
                     <Col lg={6} className="offset-lg-3">

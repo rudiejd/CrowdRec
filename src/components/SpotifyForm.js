@@ -1,7 +1,7 @@
 import {withRouter} from 'react-router-dom';
 import React, {Component} from 'react';
 import {
-  Card, Form, Button, Alert, Row,
+  Card, Form, Button, Alert, Row, Container
 } from 'react-bootstrap';
 import {connect} from 'react-redux';
 import SpotifyWebApi from 'spotify-web-api-js';
@@ -279,9 +279,10 @@ class SpotifyForm extends Component {
       <>
         {this.state.alert !== undefined ? (
           <Alert className="alert-success">
-            {this.state.alert}
-            <br />
-            <a href={this.state.playlistUrl}>{this.state.playlistUrl}</a>
+            <Container>{this.state.alert}
+              <br />
+              <a href={this.state.playlistUrl}>{this.state.playlistUrl}</a>
+            </Container>
           </Alert>
         ) : null }
         {this.state.errorStatus !== undefined ? <Alert className="alert-danger">{this.state.errorStatus}</Alert> : null }
