@@ -4,7 +4,8 @@ import { Home } from './Home';
 import { About } from './About';
 import { NoMatch } from './Nomatch.js';
 import { Navigation } from './components/Navigation';
-import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';       
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';      
+import Text from './components/Text'; 
 
 // Main class just for rendering the components. Just a shell
 class App extends Component {
@@ -22,10 +23,13 @@ class App extends Component {
                                                 </Switch>
                                                 
                                         </main>
-                                        <footer className="page-footer w-100 font-small pt-4 text-center navbar fixed-bottom">
-                                                Copyright 2020 JD Rudie
-                                        </footer>
+                                        
                                 </Router>
+                                <footer>
+                                        <Text>
+                                                <p class="text-center mt-5">Copyright 2020 JD Rudie</p>
+                                        </Text>
+                                </footer>
                 </React.Fragment>
                 
         );
