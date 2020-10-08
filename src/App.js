@@ -4,8 +4,7 @@ import { Home } from './Home';
 import { About } from './About';
 import { NoMatch } from './Nomatch.js';
 import { Navigation } from './components/Navigation';
-import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { ModalFooter, Row } from 'react-bootstrap';
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';       
 
 // Main class just for rendering the components. Just a shell
 class App extends Component {
