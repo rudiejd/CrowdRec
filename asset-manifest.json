@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/CrowdRec/static/css/main.5f361e03.chunk.css",
-    "main.js": "/CrowdRec/static/js/main.2c1adbfa.chunk.js",
-    "main.js.map": "/CrowdRec/static/js/main.2c1adbfa.chunk.js.map",
+    "main.js": "/CrowdRec/static/js/main.56ece462.chunk.js",
+    "main.js.map": "/CrowdRec/static/js/main.56ece462.chunk.js.map",
     "runtime-main.js": "/CrowdRec/static/js/runtime-main.d91b097d.js",
     "runtime-main.js.map": "/CrowdRec/static/js/runtime-main.d91b097d.js.map",
     "static/js/2.c40ea8a7.chunk.js": "/CrowdRec/static/js/2.c40ea8a7.chunk.js",
     "static/js/2.c40ea8a7.chunk.js.map": "/CrowdRec/static/js/2.c40ea8a7.chunk.js.map",
     "index.html": "/CrowdRec/index.html",
-    "precache-manifest.d712f3f746b74cb39cb3b16e2340e676.js": "/CrowdRec/precache-manifest.d712f3f746b74cb39cb3b16e2340e676.js",
+    "precache-manifest.32c06d2491d0ed926e8da5cad1c8d303.js": "/CrowdRec/precache-manifest.32c06d2491d0ed926e8da5cad1c8d303.js",
     "service-worker.js": "/CrowdRec/service-worker.js",
     "static/css/main.5f361e03.chunk.css.map": "/CrowdRec/static/css/main.5f361e03.chunk.css.map",
     "static/js/2.c40ea8a7.chunk.js.LICENSE.txt": "/CrowdRec/static/js/2.c40ea8a7.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.d91b097d.js",
     "static/js/2.c40ea8a7.chunk.js",
     "static/css/main.5f361e03.chunk.css",
-    "static/js/main.2c1adbfa.chunk.js"
+    "static/js/main.56ece462.chunk.js"
   ]
 }
