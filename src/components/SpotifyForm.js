@@ -171,12 +171,9 @@ class SpotifyForm extends Component {
               }
               // filter so we only get songs by the artist
               let filteredByBand = tracks.tracks.items.filter(song =>
-                song.artists[0] = band
+                song.artists[0] === band
               )
-              console.log('filtered: ');
-              console.log(filteredByBand);
-              console.log('regular: ');
-              console.log(tracks);
+
               return filteredByBand[Math.floor(Math.random() * filteredByBand.length)];
             },
         ).catch(err => { 
