@@ -162,6 +162,7 @@ class SpotifyForm extends Component {
 
 
   getRandomTrack(band) {
+    debugger;
     return spotify.searchTracks(band, {limit: 1})
         .then((searchTotal) => spotify.searchTracks(band, {limit: 50}))
         .then(
@@ -171,7 +172,7 @@ class SpotifyForm extends Component {
               }
               // filter so we only get songs by the artist
               let filteredByBand = tracks.tracks.items.filter(song =>
-                song.artists[0] === band
+                song.artists[0].name === band
               )
 
               return filteredByBand[Math.floor(Math.random() * filteredByBand.length)];
