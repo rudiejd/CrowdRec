@@ -5,6 +5,7 @@ import {
 } from 'react-bootstrap';
 import {connect} from 'react-redux';
 import SpotifyWebApi from 'spotify-web-api-js';
+import Text from './components/Text'
 
 const spotify = new SpotifyWebApi();
 
@@ -279,13 +280,18 @@ class SpotifyForm extends Component {
       <>
         {this.state.alert !== undefined ? (
           <Alert className="alert-success">
-            <Container>{this.state.alert}
+            <Text>
+              {this.state.alert}
               <br />
               <a href={this.state.playlistUrl}>{this.state.playlistUrl}</a>
-            </Container>
+            </Text>
           </Alert>
         ) : null }
-        {this.state.errorStatus !== undefined ? <Alert className="alert-danger">{this.state.errorStatus}</Alert> : null }
+        {this.state.errorStatus !== undefined ? 
+        <Alert className="alert-danger">
+          <Text>{this.state.errorStatus}</Text>
+        </Alert>
+         : null }
         <Card>
           <Card.Body>
             <Card.Title>Enter artist's name for recommendations</Card.Title>
