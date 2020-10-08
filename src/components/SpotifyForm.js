@@ -5,7 +5,7 @@ import {
 } from 'react-bootstrap';
 import {connect} from 'react-redux';
 import SpotifyWebApi from 'spotify-web-api-js';
-import Text from './components/Text'
+import Text from './Text';
 
 const spotify = new SpotifyWebApi();
 
