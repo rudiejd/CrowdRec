@@ -50,7 +50,7 @@ class SpotifyAuth extends Component {
       '&scope=' +
       encodeURIComponent('user-read-private%20playlist-modify-public%20playlist-modify-private') +
       '&redirect_uri=' +
-      encodeURIComponent('http://localhost:3000/');
+      encodeURIComponent('https://crowdrec.rudiejd.io');
       window.location = url;
   }
 
