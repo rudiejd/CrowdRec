@@ -34,7 +34,7 @@ export const About = () => (
 				</a>
                         </Col>
                         <Col align="center">
-				<a href="https://open.spotify.org/user/rudebowski">
+				<a href="https://open.spotify.com/user/rudebowski">
                         		<Image src="spotify.svg" width="120" height="120" alt="My Spotify"></Image>
                         	</a>
 			</Col>
