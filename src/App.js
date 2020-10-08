@@ -12,8 +12,7 @@ class App extends Component {
 	render() {
 		return (
                 <React.Fragment>
-                        
-                                <Router>
+                                <Router basename={`${process.env.PUBLIC_URL}/`}>
                                         <Navigation />
                                         <main role="main">
                                     
