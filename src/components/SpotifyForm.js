@@ -1,7 +1,7 @@
 import {withRouter} from 'react-router-dom';
 import React, {Component} from 'react';
 import {
-  Card, Form, Button, Alert, Row, Container
+  Card, Form, Button, Alert, Row
 } from 'react-bootstrap';
 import {connect} from 'react-redux';
 import SpotifyWebApi from 'spotify-web-api-js';
@@ -124,7 +124,6 @@ class SpotifyForm extends Component {
      * /
     * */
   async getRecs(name) {
-    debugger;
     const output = {};
 
     const promises = [];
@@ -160,9 +159,11 @@ class SpotifyForm extends Component {
     return sorted;
   }
 
-
+  /**
+   * Gets a random track for a given band. 
+   * @param {string} band 
+   */
   getRandomTrack(band) {
-    debugger;
     return spotify.searchTracks(band, {limit: 1})
         .then((searchTotal) => spotify.searchTracks(band, {limit: 50}))
         .then(
@@ -194,7 +195,6 @@ class SpotifyForm extends Component {
      * Creates playlist with one random song from each output artist
      */
   createPlaylist() {
-    debugger;
     const promises = [];
     const trackUris = [];
 
@@ -238,7 +238,7 @@ class SpotifyForm extends Component {
   /**
      *  Handles submission of Artist form
      * @param {Object} e Submission event
-     * TODO: Error handling
+     * 
      */
   handleSubmit(e) {
     e.preventDefault();
