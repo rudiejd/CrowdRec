@@ -9,9 +9,9 @@ All pull requests and issues are welcome. I am a beginner at web applications, s
 ## Licensing
 Released under MIT License, 10/26/2020.
 
-##Wiki
+## Wiki
 To come, if there's even any interest in what I've created
 
-##Next Steps
+## Next Steps
 
 Again, if there's enough interest, I plan to get a mobile app running using React Native. I would also like to start collecting detailed, anonymized data on user satisfaction with recommendations so I can fine tune recommendations independent of Spotify. 
