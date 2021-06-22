@@ -14,7 +14,7 @@ class App extends Component {
                 <React.Fragment>
                                 <Router basename={`${process.env.PUBLIC_URL}/`}>
                                         <Navigation />
-                                        <main role="main">
+                                        <main role="main" className="mb-auto d-flex justify-content-center">
                                     
                                                 <Switch>
                                                         <Route exact path="/" component={Home} />
@@ -25,9 +25,9 @@ class App extends Component {
                                         </main>
                                         
                                 </Router>
-                                <footer>
+                                <footer className="border-top text-center">
                                         <Text>
-                                                <p class="text-center mt-5">Copyright 2020 JD Rudie</p>
+                                                <p className="text-center">CopyLeft 2020 JD Rudie</p>
                                         </Text>
                                 </footer>
                 </React.Fragment>

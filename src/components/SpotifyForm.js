@@ -1,11 +1,12 @@
 import {withRouter} from 'react-router-dom';
 import React, {Component} from 'react';
 import {
-  Card, Form, Button, Alert, Row
+   Form, Button, Alert, Row
 } from 'react-bootstrap';
 import {connect} from 'react-redux';
 import SpotifyWebApi from 'spotify-web-api-js';
 import Text from './Text';
+import BandPaginator from './BandPaginator';
 
 const spotify = new SpotifyWebApi();
 
@@ -13,7 +14,7 @@ const spotify = new SpotifyWebApi();
 class SpotifyForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {resultReceived: false, recOutput: {}, errorStatus: undefined};
+    this.state = {resultReceived: false, recOutput: {}, recItems: [], errorStatus: undefined};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.processResults = this.processResults.bind(this);
@@ -21,6 +22,25 @@ class SpotifyForm extends Component {
     this.createPlaylist = this.createPlaylist.bind(this);
     this.countTracks = this.countTracks.bind(this);
     this.getRandomTrack = this.getRandomTrack.bind(this);
+  }
+
+  /**
+   * Runs after component mounts,  decodes the access token if applicable
+   */
+  componentDidMount() {
+    const hash = window.location.hash
+    .substring(1)
+    .split('&')
+    .reduce(function (initial, item) {
+      if (item) {
+        var parts = item.split('=');
+        initial[parts[0]] = decodeURIComponent(parts[1]);
+      }
+      return initial;
+    }, {});
+
+    const access_token = hash.access_token;
+    this.props.change({'name': 'token', 'value': access_token})
   }
 
   /**
@@ -156,7 +176,22 @@ class SpotifyForm extends Component {
     const sorted = Object.fromEntries(
         Object.entries(processed).sort(([, a], [, b]) => b - a),
     );
-    return sorted;
+    let output = [];
+    for (const key in sorted) {
+      output.push(key);
+    }
+    this.setState({recItems: output});
+    fetch("https://api64.ipify.org?format=json")
+      .then(response => {
+        return response.json();
+      }, "jsonp")
+      .then(res => {
+      fetch(`http://rudiejd.aws.csi.miamioh.edu/final.php?method=logRec&artist=${this.state.artist}&recommendations=${output.join(',')}&ip=${res.ip}`, {
+        method: 'POST',
+        })
+      })
+      .catch(err => console.log(err))
+    return sorted; 
   }
 
   /**
@@ -230,7 +265,7 @@ class SpotifyForm extends Component {
               );
               this.setState({playlistUrl: playlist.external_urls.spotify});
             });
-        Promise.all(addPromises).then(() => this.setState({alert: 'Playlist created! Click below to open it up. Enjoy :)'}));
+        Promise.all(addPromises).then(() => this.setState({playlistCreated: true}));
       }
     });
   }
@@ -244,7 +279,6 @@ class SpotifyForm extends Component {
     e.preventDefault();
     spotify.setAccessToken(this.props.vars.token);
     this.setState({errorStatus: undefined, alert: undefined});
-    console.log(this.state);
     spotify.searchArtists(this.state.artist)
         .then(async (res) => await this.getRecs(res.artists.items[0].name))
         .then(() => {
@@ -290,43 +324,40 @@ class SpotifyForm extends Component {
           <Text>{this.state.errorStatus}</Text>
         </Alert>
          : null }
-        <Card>
-          <Card.Body>
-            <Card.Title>Enter artist's name for recommendations</Card.Title>
+            
+            
+            {this.state.resultReceived ? 
+              null : 
+            <div className="p-lg-5">
+            <h1 className="mb-5 text-center">Enter artist's name for recommendations</h1>
             <Form onSubmit={this.handleSubmit}>
-              <Form.Group>
-                <Form.Label>Artist</Form.Label>
-                <Form.Control type="text" placeholder="Iron Maiden" name="artist" onChange={this.handleChange} required />
+              <Form.Group className="d-flex justify-content-center">
+                <Form.Control type="text" placeholder="Iron Maiden" name="artist" className="w-50" onChange={this.handleChange} required />
               </Form.Group>
-              <Form.Group>
-                <Form.Control type="submit" className="bg-primary text-light col-8 offset-2" />
+              <Form.Group className="d-flex justify-content-center">
+                <Form.Control type="submit" className="w-25 bg-primary text-light" value="Go!"/>
               </Form.Group>
-              <Form.Group>
-                <Form.Control type="reset" className="bg-primary text-light col-8 offset-2" />
-              </Form.Group>
-            </Form>
-          </Card.Body>
-        </Card>
+            </Form> 
+            </div>}
 
-        <div className="d-block">
+        <div>
           {this.state.resultReceived ? (
-            <h4>
-              Recommended Artists for {this.state.artist}
-            </h4>
+            <h1 className="mb-2 text-center">
+              Since you like {this.state.artist}, you might like:
+            </h1>
           ) : null }
-          <Row>
-            <ul className="col-6">
-              {this.state.resultReceived ? Object.keys(this.state.recOutput).map((band) => (
-                <li key={band}>
-                  {band}
-                  :
-                  {' '}
-                  {this.state.recOutput[band]}
-                </li>
-              )) : null }
-            </ul>
-            {this.state.resultReceived ? <Button className="mt-3 col-6 h-50 w-50" onClick={this.createPlaylist}>Create a playlist with songs from these artists</Button> : null}
-          </Row>
+              {this.state.resultReceived ? 
+              (
+                <BandPaginator bands={this.state.recItems} perPage={5}></BandPaginator>
+              ) : null }
+            <Row className="d-flex justify-content-center">
+              {this.state.resultReceived ? 
+                this.state.playlistCreated ?
+                <Button className="bg-success mt-3"onClick={ () => {window.location.href = this.state.playlistUrl;} }> Playlist created! Click to open it up.</Button> :
+                <Button className="mt-3" onClick={this.createPlaylist}>Create a playlist with songs from these artists</Button> : 
+                null
+                }
+            </Row>    
         </div>
 
       </>

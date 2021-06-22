@@ -42,7 +42,6 @@ class SpotifyAuth extends Component {
  */
   handleRedirect(event) {
     event.preventDefault();
-
     let url =
       'https://accounts.spotify.com/authorize' +    
       '?response_type=token' +
@@ -57,7 +56,7 @@ class SpotifyAuth extends Component {
   render() {
     return (
 
-        <Button className="sp_button" onClick={(event) => this.handleRedirect(event)} >
+        <Button className="sp_button mt-4" onClick={(event) => this.handleRedirect(event)} >
           Link spotify to get started
         </Button>
     );
