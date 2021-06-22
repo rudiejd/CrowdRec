@@ -186,7 +186,7 @@ class SpotifyForm extends Component {
         return response.json();
       }, "jsonp")
       .then(res => {
-      fetch(`http://rudiejd.aws.csi.miamioh.edu/final.php?method=logRec&artist=${this.state.artist}&recommendations=${output.join(',')}&ip=${res.ip}`, {
+      fetch(`https://rudiejd.aws.csi.miamioh.edu/final.php?method=logRec&artist=${this.state.artist}&recommendations=${output.join(',')}&ip=${res.ip}`, {
         method: 'POST',
         })
       })
