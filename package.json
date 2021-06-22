@@ -1,6 +1,6 @@
 {
   "name": "crowdrec",
-  "homepage": "crowdrec.rudiejd.io",
+  "homepage": "https://crowdrec.rudiejd.io",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
