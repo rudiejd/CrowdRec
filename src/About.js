@@ -20,8 +20,8 @@ export const About = () => (
                         <Text>
                             <Image src="https://i.pinimg.com/originals/10/71/a6/1071a68d76b0673337b84c84d37c8100.gif" className="float-md-left" alt="Old school computer">
                             </Image>
-                            <p>I am a junior Mathematics and Computer Science student at Miami University in Oxford, Ohio. I intern at Wolfram Research in the Enterprise Data Analysis department.</p>
-                            <p>I've been enthusiastic about music my whole life. Some of my all time favorites are David Bowie, Run The Jewels, Sufjan Stevens, MF DOOM, OutKast, Parquet Courts, Deafheaven, Megadeth, and Fiona Apple. </p>
+                            <p>I am a computer science graduate student at Miami University. I teach a class on business computing, and I am going to be Software Engineer at DraftKings after graduation.</p>
+                            <p>I've been enthusiastic about music my whole life. Some of my all time favorites are Black Country, New Road, The Microphones, Car Seat Headrest, David Bowie, Run The Jewels, Sufjan Stevens, MF DOOM, OutKast, Parquet Courts, Deafheaven, Megadeth, and Fiona Apple. </p>
                             <p>My social media is linked below just in case you're feeling like donating some clout. I also greatly appreciate PayPal donos since I'm a struggling college student.</p>
                         </Text>
                   </Col>

@@ -110,7 +110,7 @@ class SpotifyForm extends Component {
      * @param {object} output Reference to output object which should be modified
      * @return {Promise}
      */
-  async countTracks(id, name, output) {
+  async countTracks(id, name, output, delay = 1000, attempt = 1, backoff = 1.3) {
     const MAX_SONGS = 200;
     return spotify.getPlaylistTracks(id).then(
         (pt) => {
@@ -131,7 +131,8 @@ class SpotifyForm extends Component {
         },
     ).catch((err) => {
         if (err.status === 429) {
-            setTimeout(this.countTracks(id, name, output), 500);
+          // exponential backoff
+            setTimeout(this.countTracks(id, name, output, attempt=attempt+1), delay*attempt*backoff); 
         } 
         this.handleError(err)
     });
@@ -198,7 +199,7 @@ class SpotifyForm extends Component {
    * Gets a random track for a given band. 
    * @param {string} band 
    */
-  getRandomTrack(band) {
+  getRandomTrack(band, delay = 1000, attempt = 1, backoff = 1.3) {
     return spotify.searchTracks(band, {limit: 1})
         .then((searchTotal) => spotify.searchTracks(band, {limit: 50}))
         .then(
@@ -216,8 +217,8 @@ class SpotifyForm extends Component {
         ).catch(err => { 
             
             if (err.status === 429) {
-                setTimeout(() => console.log("waiting to prevent 429..."), 500)
-                return this.getRandomTrack(band)
+                setTimeout(() => console.log("waiting to prevent 429..."), delay*attempt*backoff)
+                return this.getRandomTrack(band, attempt=attempt+1)
             } else {
                 this.handleError(err);
             } 
