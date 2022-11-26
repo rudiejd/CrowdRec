@@ -22,7 +22,7 @@ export const Home = () => {
                         <li>I tally up which other artists most frequently appear in these playlists</li>
                         <li>Ordering by frequency, I cut the other artists off</li>
                         <li>I come back to you with a playlist of one random song from each of these new artists</li>
-                        <li>Hopefully you like it... or maybe you don't</li>
+                        <li>Hopefully you like it!!</li>
                     </ul>
                 </p>
                 <Col sm={12} className="d-flex justify-content-sm-center align-items-sm-center">
