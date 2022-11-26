@@ -1,10 +1,10 @@
-import {Container } from 'react-bootstrap';
 import styled from 'styled-components';
 
-const Text = styled(Container)`
-    word-wrap: break-word;
-    text-align: justify;
-    text-justify: inter-word;
-`
+const ViewWidthText = styled.div(
+    ({viewSize}) => `
+        text-align: center;
+        font-size: ${viewSize}vw;
+    `);
 
-export default Text; 
+
+export default ViewWidthText; 

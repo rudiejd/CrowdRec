@@ -56,8 +56,8 @@ class SpotifyAuth extends Component {
   render() {
     return (
 
-        <Button className="sp_button mt-4" onClick={(event) => this.handleRedirect(event)} >
-          Link spotify to get started
+        <Button className="sp_button ml-9" onClick={(event) => this.handleRedirect(event)} >
+          Get Started
         </Button>
     );
   }

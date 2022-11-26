@@ -5,7 +5,7 @@ import {
 } from 'react-bootstrap';
 import {connect} from 'react-redux';
 import SpotifyWebApi from 'spotify-web-api-js';
-import Text from './Text';
+import ViewWidthText from './Text';
 import BandPaginator from './BandPaginator';
 
 const spotify = new SpotifyWebApi();
@@ -313,16 +313,16 @@ class SpotifyForm extends Component {
       <>
         {this.state.alert !== undefined ? (
           <Alert className="alert-success">
-            <Text>
+            <ViewWidthText>
               {this.state.alert}
               <br />
               <a href={this.state.playlistUrl}>{this.state.playlistUrl}</a>
-            </Text>
+            </ViewWidthText>
           </Alert>
         ) : null }
         {this.state.errorStatus !== undefined ? 
         <Alert className="alert-danger">
-          <Text>{this.state.errorStatus}</Text>
+          <ViewWidthText>{this.state.errorStatus}</ViewWidthText>
         </Alert>
          : null }
             
